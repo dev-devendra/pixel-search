@@ -52,7 +52,7 @@ START_OFFSET_SEC = 0
 END_OFFSET_SEC = 120
 
 # Initialize CLIP model and processor
-model_name = "openai/clip-vit-base-patch32"  # Example CLIP model
+model_name = "openai/clip-vit-large-patch14"
 processor = CLIPProcessor.from_pretrained(model_name)
 model = CLIPModel.from_pretrained(model_name)
 model.eval()
@@ -202,9 +202,9 @@ def main(gc_project_id, gcs_bucket_name, gcs_folder_name, pinecone_index_name):
 
 if __name__ == '__main__':
 
-    gc_project_id = os.getenv("GC_PROJECT_ID")
-    gcs_bucket_name = os.getenv("GCS_VIDEO_BUCKET_NAME")
-    gcs_folder_name = os.getenv("GCS_VIDEO_FOLDER_NAME")
+    gc_project_id = os.getenv("GOOGLE_CLOUD_PROJECT_ID")
+    gcs_bucket_name = os.getenv("GOOGLE_CLOUD_STORAGE_VIDEO_BUCKET_NAME")
+    gcs_folder_name = "videos"
     pinecone_index_name = os.getenv("PINECONE_INDEX_NAME")
     main(gc_project_id, gcs_bucket_name, gcs_folder_name, pinecone_index_name)
 

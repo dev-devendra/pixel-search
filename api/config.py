@@ -12,7 +12,7 @@ from PIL import Image
 load_dotenv()
 
 # Initialize CLIP model and processor
-model_name = "openai/clip-vit-base-patch32"
+model_name = "openai/clip-vit-large-patch14"
 processor = CLIPProcessor.from_pretrained(model_name)
 model = CLIPModel.from_pretrained(model_name)
 model.eval()
