@@ -52,7 +52,7 @@ START_OFFSET_SEC = 0
 END_OFFSET_SEC = 120
 
 # Initialize CLIP model and processor
-model_name = "openai/clip-vit-large-patch14"
+model_name = "laion/CLIP-ViT-H-14-laion2B-s32B-b79K"
 processor = CLIPProcessor.from_pretrained(model_name)
 model = CLIPModel.from_pretrained(model_name)
 model.eval()

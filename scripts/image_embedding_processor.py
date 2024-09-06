@@ -17,10 +17,10 @@ from transformers import CLIPProcessor, CLIPModel
 load_dotenv()
 
 FILE_TYPE = 'image'
-DIMENSION = 768  # CLIP output dimension for ViT-L/14
+DIMENSION = 1024  # Update this to the correct output dimension for CLIP ViT-H/14 if known
 
-# Initialize CLIP model and processor for ViT-L/14
-model_name = "openai/clip-vit-large-patch14"
+# Initialize CLIP model and processor for ViT-H/14
+model_name = "laion/CLIP-ViT-H-14-laion2B-s32B-b79K"
 processor = CLIPProcessor.from_pretrained(model_name)
 model = CLIPModel.from_pretrained(model_name)
 model.eval()
