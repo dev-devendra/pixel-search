@@ -2,7 +2,7 @@ import axios from 'axios';
 import { cropImageToCenter } from './ImageCropper';
 import { track } from '@vercel/analytics';
 
-const MAX_FILE_SIZE = 4500000; // 4.5 MB Vercel upload limit
+const MAX_FILE_SIZE = 450000000; // 4.5 MB Vercel upload limit
 
 interface FileUploadHandlerProps {
   API_URL: string;

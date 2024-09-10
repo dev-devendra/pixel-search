@@ -18,23 +18,13 @@ async def query_video(file: UploadFile = File(...)):
             base64_encoded_data = base64.b64encode(video_file.read())
             base64_video = base64_encoded_data.decode('utf-8')
         
-        if len(base64_video) > 27000000:
-            os.remove(file_path)
-            raise HTTPException(status_code=400, detail="We don't support videos greater than 20 MB. Please upload a smaller video.")
-
-        access_token = settings.get_access_token()
-        
-        url, headers, data = settings.get_embedding_request_data(access_token, 'video', base64_video)
-        
-        response = requests.post(url, headers=headers, json=data)
-        response.raise_for_status()
         
         # Extract the first embedding from the response
-        embedding_data = response.json()
-        vector = embedding_data['predictions'][0]['videoEmbeddings'][0]['embedding']
-        
+        embedding_data = settings.get_clip_embedding(base64_video,'video')
+        print("embedding_data", embedding_data)
+ 
         query_response = deps.index.query(
-            vector=vector,
+            vector=embedding_data,
             top_k=settings.k,
             include_metadata=True
         )
@@ -51,6 +41,7 @@ async def query_video(file: UploadFile = File(...)):
                 "start_offset_sec": match['metadata'].get('start_offset_sec'),
                 "end_offset_sec": match['metadata'].get('end_offset_sec'),
                 "interval_sec": match['metadata'].get('interval_sec'),
+                "tags": match['metadata'].get('tags'),
             }
         } for match in matches]
         

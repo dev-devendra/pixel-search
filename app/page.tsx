@@ -25,7 +25,7 @@ const API_URL = (() => {
     case "production":
       return `https://${process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL || ''}`;
     case "demo":
-      return "https://shop-the-look.sample-app.pinecone.io";
+      return "";
     default:
       return "http://localhost:8000";
   }
@@ -42,6 +42,7 @@ interface Result {
     end_offset_sec: number;
     interval_sec: number;
     segment: number;
+    tags: string[];
   };
 }
 
@@ -285,13 +286,15 @@ export default function Home() {
   const getScoreLabel = (score: number) => {
     return { score: score.toFixed(4) };
   };
-
+  const getTagsList = (tags: string[]) => {
+    return { tags: tags.join(", ") };
+  };
   const getVideoId = (result: Result, index: number) => `video-${index}-${result.metadata.gcs_public_url}`;
 
   return (
     <Layout>
       <Head>
-        <title>Shop The Look</title>
+        <title>Pixel-Search</title>
       </Head>
       <div
         className={`flex flex-col items-center justify-start min-h-screen bg-gray-100 ${dragging ? 'border-4 border-dashed border-blue-500' : ''
@@ -302,8 +305,8 @@ export default function Home() {
         style={{ fontFamily: "'Inter', 'Helvetica', 'Arial', sans-serif" }}
       >
         <div className="max-w-6xl w-full px-4 md:px-0 mt-12">
-          <h1 className="font-sans text-4xl mb-3 text-center text-indigo-800">Shop The Look</h1>
-          <h1 className="font-sans text-base mb-5 text-center text-gray-900">Upload a photo or video (under 4.5 MB) or search by text for outfit inspiration</h1>
+        <h1 className="font-sans text-4xl mb-3 text-center text-teal-700">Pixel-Search</h1>
+          <h1 className="font-sans text-base mb-5 text-center text-gray-900">Upload a photo or video or search by text</h1>
           <div className="max-w-xl mx-auto relative">
             <form onSubmit={handleSubmit} className="flex items-center">
               <div className="flex-grow flex items-center bg-white rounded shadow-md">
@@ -450,6 +453,7 @@ export default function Home() {
                 {results.map((result, index) => {
                   const { score } = getScoreLabel(result.score);
                   const videoId = getVideoId(result, index);
+                  const { tags } = getTagsList(result.metadata.tags)
                   return (
                     <div key={videoId}>
                       {result.metadata.file_type === 'image' ? (
@@ -466,12 +470,12 @@ export default function Home() {
                         </div>
                       )}
                       <div className="inline-block mt-2 mb-2 px-1 py-1 text-sm text-gray-400 flex items-center">
-                        Similarity score: {score}
+                        Similarity score: {score} Tags: {tags} 
                         <div className="relative ml-1 group">
                           <QuestionMarkCircleIcon className="h-4 w-4 text-gray-400" />
                           <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 bg-gray-500 text-white text-xs rounded py-1 px-2 hidden group-hover:block whitespace-nowrap">
                             Cosine similarity score between 0 - 1, higher is more similar. 
-                            <a href="https://www.pinecone.io/learn/vector-similarity?utm_source=shop-the-look&utm_medium=referral)" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200"> About vector similarity.</a>
+                            <a href="" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-blue-200"> About vector similarity.</a>
                           </div>
                         </div>
                       </div>

@@ -6,7 +6,7 @@ app = FastAPI()
 
 @app.get("/api")
 async def root():
-    return {"message": "Welcome to the Shop The Look API!"}
+    return {"message": "Welcome to the pixel-search API!"}
 
 # Add CORS middleware
 # CORS is important for:

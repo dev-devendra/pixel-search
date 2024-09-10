@@ -14,3 +14,4 @@ torch
 torchvision
 google-cloud-storage
 opencv-python
+google-cloud-vision

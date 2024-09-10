@@ -1,0 +1,66 @@
+{
+    "fashion_clothing": [
+        "casual", "formal", "traditional", "sportswear", "loungewear", 
+        "outerwear", "swimwear", "activewear", "shirts", "pants", "dresses", 
+        "skirts", "jackets", "coats", "suits", "sweaters", "hoodies", "blouses",
+        "t-shirts", "jeans", "trousers", "men's", "women's", "unisex", "kids", "cargo pants", "sarees", "jumpsuit", "full sleeve", "polo tshirt"
+    ],
+    "accessories": [
+        "belts", "hats", "scarves", "gloves", "bags", "wallets", 
+        "sunglasses", "watches"
+    ],
+    "shoes": [
+        "sneakers", "boots", "sandals", "heels", "flats", 
+        "loafers", "slippers", "formal shoes", "casual shoes", "sports shoes", "football shoes", "roller skates", "inline skates", "ice skates"
+    ],
+    "animals": [
+        "domestic", "wild", "birds", "reptiles", "mammals", 
+        "marine", "insects", "dog", "cat", "bird", "fish", 
+        "snake", "horse", "lion", "elephant", "butterfly", "zebra", "deer", "giraffe"
+    ],
+    "gadgets_electronics": [
+        "smartphones", "tablets", "laptops", "desktops", "cameras", 
+        "smartwatches", "headphones", "gaming", "home appliances", 
+        "phone", "tablet", "laptop", "camera", "smartwatch", "speaker", 
+        "drone", "VR", "gaming console", "TV"
+    ],
+    "materials": [
+        "leather", "cotton", "wool", "silk", "denim", 
+        "polyester", "nylon", "metal", "plastic", "glass", "wood"
+    ],
+    "colors": [
+        "red", "blue", "green", "yellow", "black", 
+        "white", "gray", "pink", "purple", "brown", "orange"
+    ],
+    "utensils": [
+        "spoons", "forks", "knives", "spatulas", "whisks", 
+        "tongs", "peelers", "graters", "measuring cups", "measuring spoons", 
+        "can openers", "colanders", "strainers", "wine glass", "beer mug"
+    ],
+    "kitchen_appliances": [
+        "blenders", "toasters", "microwaves", "ovens", "refrigerators", 
+        "dishwashers", "coffee makers", "stoves", "rice cookers", 
+        "kettles", "food processors", "slow cookers"
+    ],
+    "makeup_items": [
+        "foundation", "concealer", "powder", "blush", "eyeshadow", 
+        "mascara", "eyeliner", "lipstick", "lip gloss", "bronzer", 
+        "highlighter", "makeup brushes", "primer"
+    ],
+    "groceries": [
+        "vegetables", "fruits", "dairy", "meat", "bread", 
+        "cereal", "snacks", "canned goods", "frozen foods", "beverages", 
+        "spices", "condiments", "oils", "avacado", "watermelon"
+    ],
+    "food_items": [
+        "pasta", "rice", "noodles", "sauces", "soup", 
+        "beans", "grains", "herbs", "cheese", "yogurt", 
+        "eggs", "butter", "honey", "jam", "sweets"
+    ],
+    "furnitures": [
+        "sofa", "chair", "table", "bed", "dresser", 
+        "bookshelf", "cabinet", "desk", "coffee table", "nightstand", 
+        "armchair", "recliner", "bench", "wardrobe", "side table", 
+        "stool", "tv stand", "entertainment center", "ottoman", "console table", "lamp"
+    ]
+}

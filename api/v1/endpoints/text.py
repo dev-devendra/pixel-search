@@ -37,6 +37,7 @@ async def query_text(query: TextQuery):
                 "start_offset_sec": match['metadata'].get('start_offset_sec'),
                 "end_offset_sec": match['metadata'].get('end_offset_sec'),
                 "interval_sec": match['metadata'].get('interval_sec'),
+                "tags": match['metadata'].get('tags'),
             }
         } for match in matches]
 
